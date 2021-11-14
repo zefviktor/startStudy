@@ -22,6 +22,14 @@
 Проверить, чтобы все работало без ошибок в консоли */
 
 'use strict';
-
+//1
 let numberOfFilms = prompt('Сколько фильмов вы уже посмотрели?','');
 console.log(numberOfFilms);
+//2
+let personalMovieDB = {
+    count : numberOfFilms,
+    movies : {},
+    actors : {},
+    genres : [],
+    privar : false
+};
