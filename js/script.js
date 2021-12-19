@@ -236,74 +236,156 @@ P.S. Функции вызывать не обязательно*/
 при помощи метода forEach вывести в консоль сообщения в таком виде:
 "Любимый жанр #(номер по порядку, начиная с 1) - это (название из массива)"*/
 
-'use strict';
+// 'use strict';
 
-const personalMovieDB = {
-    count : 0,
-    movies : {},
-    actors : {},
-    genres : [],
-    privat : false,
-    start: function (){
-        personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
-        while (personalMovieDB.count =='' || personalMovieDB.count == null || isNaN(personalMovieDB.count)){
-            personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
-        }
-    },
-    rememberMyFilms: function(){
-        for (let i = 0; i < 2; i++){
-            const   a = prompt('Один из последних просмотренных фильмов?',''),
-                    b = prompt('На сколько оцените его?','');
+// const personalMovieDB = {
+//     count : 0,
+//     movies : {},
+//     actors : {},
+//     genres : [],
+//     privat : false,
+//     start: function (){
+//         personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
+//         while (personalMovieDB.count =='' || personalMovieDB.count == null || isNaN(personalMovieDB.count)){
+//             personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
+//         }
+//     },
+//     rememberMyFilms: function(){
+//         for (let i = 0; i < 2; i++){
+//             const   a = prompt('Один из последних просмотренных фильмов?',''),
+//                     b = prompt('На сколько оцените его?','');
         
-            if (a != null && b != null && a != '' && b != '' && a.length < 50 ){
-                personalMovieDB.movies[a] = b;
-                console.log('done');
-            } else {
-                console.log('error');
-                i--;
-            }
-        }
-    },
-    detectPersonalLevel: function(){
-        if (personalMovieDB.count < 10){
-            console.log("Просмотрено довольно мало фильмов");
-        } else if (personalMovieDB.count <= 10 || personalMovieDB.count < 30){
-            console.log("Вы классический зритель");
-        } else if(personalMovieDB.count >= 30){
-            console.log("Вы киноман");
-        } else {
-            console.log("Произошла ошибка");
-        }
-    },
-    showMyDB: function(hidden){
-        if(!hidden){
-            console.log(personalMovieDB);
-        }
-    },
-    toggleVisibleMyDB: function(){
-        if(personalMovieDB.privat){
-            personalMovieDB.privat = false;
-        } else {
-            personalMovieDB.privat = true;
-            personalMovieDB.showMyDB();
-        }
-    },
-    writeYourGenres: function(){
-        for (let i = 1; i <= 3; i++){
-            let gener = prompt(`Ваш любимый жанр под номером ${i}`,'');
+//             if (a != null && b != null && a != '' && b != '' && a.length < 50 ){
+//                 personalMovieDB.movies[a] = b;
+//                 console.log('done');
+//             } else {
+//                 console.log('error');
+//                 i--;
+//             }
+//         }
+//     },
+//     detectPersonalLevel: function(){
+//         if (personalMovieDB.count < 10){
+//             console.log("Просмотрено довольно мало фильмов");
+//         } else if (personalMovieDB.count <= 10 || personalMovieDB.count < 30){
+//             console.log("Вы классический зритель");
+//         } else if(personalMovieDB.count >= 30){
+//             console.log("Вы киноман");
+//         } else {
+//             console.log("Произошла ошибка");
+//         }
+//     },
+//     showMyDB: function(hidden){
+//         if(!hidden){
+//             console.log(personalMovieDB);
+//         }
+//     },
+//     toggleVisibleMyDB: function(){
+//         if(personalMovieDB.privat){
+//             personalMovieDB.privat = false;
+//         } else {
+//             personalMovieDB.privat = true;
+//             personalMovieDB.showMyDB();
+//         }
+//     },
+//     writeYourGenres: function(){
+//         for (let i = 1; i <= 3; i++){
+//             let gener = prompt(`Ваш любимый жанр под номером ${i}`,'');
 
-            if (gener != null && gener != ''){
-                personalMovieDB.genres[i-1] = gener;
-                console.log('done');
-            } else {
-                console.log('error');
-                i--;
-            }
-        } 
-        personalMovieDB.genres.forEach((item, i) => {
-            console.log(`Любимый жанр ${i+1} - это ${item}`);
-            i++;
-        });
+//             if (gener != null && gener != ''){
+//                 personalMovieDB.genres[i-1] = gener;
+//                 console.log('done');
+//             } else {
+//                 console.log('error');
+//                 i--;
+//             }
+//         } 
+//         personalMovieDB.genres.forEach((item, i) => {
+//             console.log(`Любимый жанр ${i+1} - это ${item}`);
+//             i++;
+//         });
        
-    } 
-};
+//     } 
+// };
+
+// 27. Задачи с собеседований на понимание основ
+
+// •	Какое будет выведено значение: let x = 5; alert( x++ ); ?
+// •	Чему равно такое выражение: [ ] + false - null + true ?
+// •	Что выведет этот код: let y = 1; let x = y = 2; alert(x); ?
+// •	Чему равна сумма [ ] + 1 + 2?
+// •	Что выведет этот код: alert( "1"[0] )?
+// •	Чему равно 2 && 1 && null && 0 && undefined ?
+// •	Есть ли разница между выражениями? !!( a && b ) и (a && b)?
+// •	Что выведет этот код: alert( null || 2 && 3 || 4 ); ?
+// •	a = [1, 2, 3]; b = [1, 2, 3]; Правда ли что a == b ?
+// •	Что выведет этот код: alert( +"Infinity" ); ?
+// •	Верно ли сравнение: "Ёжик" > "яблоко"?
+// •	Чему равно 0 || "" || 2 || undefined || true || falsе ?
+
+function number1 (){
+    let x = 5;
+    console.log( `Ответ ${x++} & ${++x}`);
+}
+number1(); // x=5  & x=7 
+
+function number2 (){
+    console.log([ ] + false - null + true);
+} 
+number2(); //NaN
+
+function number3 (){
+    let y = 1;
+    let x = y = 2; 
+    console.log(x);
+}
+number3();
+
+function number4 (){
+    console.log([ ] + 1 + 2);
+}
+number4(); //NaN
+
+
+function number5 (){
+    console.log("1"[0]);
+}
+number5(); //1
+
+function number6 (){
+    console.log(2 && 1 && null && 0 && undefined);
+}
+number6(); //null
+
+// number7	Есть ли разница между выражениями? !!( a && b ) и (a && b)?
+
+function number8 (){
+  console.log(( null || 2 && 3 || 4));
+}
+number8(); //3
+
+
+
+function number9 (){
+    const a = [1, 2, 3],
+          b = [1, 2, 3];
+          
+  console.log(a == b);
+}
+number9(); //false
+
+function number10 (){
+    console.log(+"Infinity" );
+  }
+  number10(); //Infinity
+
+  function number11 (){
+      const rrr = "Ёжик" > "яблоко";
+    console.log(rrr);
+  }
+  number11(); //false
+
+  function number12 (){
+    console.log( 0 || "" || 2 || undefined || true || falsе );
+  }
+  number12(); //2
