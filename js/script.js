@@ -389,3 +389,6 @@ function number10 (){
     console.log( 0 || "" || 2 || undefined || true || falsе );
   }
   number12(); //2
+
+  //И запинается на лжи
+  // ИЛИ запинается на правде
